@@ -63,7 +63,7 @@ export default function Home() {
             backgroundColor: '#f9f9f9',
           }}
         >
-          Input File
+          {selectedFile ? selectedFile.name : "Input File"}
         </label>
         <Button onClick={handleSubmit}>Submit</Button>
       </div>

@@ -121,6 +121,7 @@ dist
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
+.vscode/
 
 # yarn v2
 .yarn/cache
@@ -129,3 +130,17 @@ dist
 .yarn/install-state.gz
 .pnp.*
 .DS_Store
+
+
+# Ignore virtual environment directory
+fastapi-env/
+
+# Ignore Python bytecode files
+__pycache__/
+
+# Ignore Python egg info
+*.egg-info/
+
+# Ignore other Python cache files
+*.pyc
+*.pyo

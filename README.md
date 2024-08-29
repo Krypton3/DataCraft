@@ -24,8 +24,8 @@ To run this project locally, follow these steps:
    Ensure you have Python installed. Then, set up a virtual environment and install the required packages:
 
    ```bash
-   python3 -m venv env
-   source env/bin/activate
+   python3 -m venv fastapi-env
+   source fastapi-env/bin/activate
    pip install -r requirements.txt
    ```
 

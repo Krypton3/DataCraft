@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* styles/globals.css or a specific CSS file */
+.navbar-dark {
+    background-color: #2C2C2C; /* Dark Gray */
+    color: #FFFFFF; /* White text */
+}
+
+.navbar-dark a {
+color: #FFFFFF; /* White text for links */
+}
+
+.navbar-dark a:hover {
+color: #28A745; /* Accent color for hover, e.g., red */
+}
+
+html, body {
+height: 100%;
+margin: 0;
+padding: 0;
+}
+
+body {
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}

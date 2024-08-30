@@ -1,14 +1,12 @@
 // pages/about.js
 
 import { Spacer } from '@nextui-org/react';
-import Head from 'next/head';
+import React from 'react';
 
 export default function About() {
   return (
-    <>
-      <Head>
-        <title>About DataCraft</title>
-      </Head>
+    <React.Fragment>
+      <title>About DataCraft</title>
       <div style={{ padding: '40px', margin: '0 auto', backgroundColor: '#f4f4f4', borderRadius: '8px' }}>
         <Spacer y={2} />
         <div>
@@ -69,6 +67,6 @@ export default function About() {
         </div>
         <Spacer y={2} />
       </div>
-    </>
+    </React.Fragment>
   );
 }

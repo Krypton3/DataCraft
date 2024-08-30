@@ -44,5 +44,4 @@ async def upload_file(file: UploadFile = File(...)):
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"An unexpected error occurred: {str(e)}")
 
-    # If successful, you can process the DataFrame here
     return {"filename": file.filename}

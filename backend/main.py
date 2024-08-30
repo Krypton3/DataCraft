@@ -1,5 +1,6 @@
 import io
 import pandas as pd
+import data_processing
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -20,7 +21,7 @@ app.add_middleware(
 
 @app.get("/")
 async def main():
-    return {"message": "I am in DataCroft Backend!"}
+    return {"message": "I am in Data Croft Backend!"}
 
 
 @app.post("/upload/")
@@ -37,11 +38,18 @@ async def upload_file(file: UploadFile = File(...)):
 
     # Try reading the file as a CSV
     try:
-        df = pd.read_csv(io.StringIO(contents.decode('utf-8')))
-        print(df)
+        pd.read_csv(io.StringIO(contents.decode('utf-8')))
     except pd.errors.ParserError:
         raise HTTPException(status_code=400, detail="Invalid file content. Unable to parse CSV.")
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"An unexpected error occurred: {str(e)}")
 
     return {"filename": file.filename}
+
+
+@app.get("/dashboard/")
+async def data_pre_processing():
+    # sending the dataframe for data cleaning
+    file_path = './data/cost_of_living_2024.csv'
+    data = pd.read_csv(file_path)
+    return await data_processing.processing(data=data)

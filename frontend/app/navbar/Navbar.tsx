@@ -38,14 +38,14 @@ const CraftNavbar: React.FC = () => {
           >
             <DropdownItem
               key="data-cleaning"
-              description="DataCraft offers a faster data cleaning process, such as handling missing values, removing duplicate records, etc."
+              description="Data Craft offers a faster data cleaning process, such as handling missing values, removing duplicate records, etc."
               startContent={icons.flash}
             >
               Data Cleaning
             </DropdownItem>
             <DropdownItem
               key="dashboard"
-              description="DataCraft offers informative data visualizations in a dashboard based on data types."
+              description="Data Craft offers informative data visualizations in a dashboard based on data types."
               startContent={icons.activity}
             >
               Visualizations

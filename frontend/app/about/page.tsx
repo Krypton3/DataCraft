@@ -17,7 +17,7 @@ export default function About() {
             fontSize: "2.5rem", 
             marginBottom: "1rem"
           }}>
-            About DataCraft
+            About Data Craft
           </h1>
           <p style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
           This service leverages the power of modern web technologies to create a fast and scalable full-stack application.

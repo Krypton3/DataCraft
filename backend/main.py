@@ -2,6 +2,7 @@ import io
 import pandas as pd
 import dashboard
 import analytics
+from models.model import PlotRequest
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -58,3 +59,8 @@ async def dashboard_stats():
 async def analytics_stats():
     # fetching anatics statistics
     return await analytics.analytics()
+
+
+@app.post("/plot/")
+async def plots(plot_request: PlotRequest):
+    return await analytics.plot_data(plot_request)

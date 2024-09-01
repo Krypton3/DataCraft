@@ -1,6 +1,7 @@
 import io
 import pandas as pd
-import data_processing
+import dashboard
+import analytics
 from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -48,8 +49,12 @@ async def upload_file(file: UploadFile = File(...)):
 
 
 @app.get("/dashboard/")
-async def data_pre_processing():
-    # sending the dataframe for data cleaning
-    file_path = './data/cost_of_living_2024.csv'
-    data = pd.read_csv(file_path)
-    return await data_processing.processing(data=data)
+async def dashboard_stats():
+    # fetching dashboard statistics
+    return await dashboard.dashboard()
+
+
+@app.get("/analytics/")
+async def analytics_stats():
+    # fetching anatics statistics
+    return await analytics.analytics()

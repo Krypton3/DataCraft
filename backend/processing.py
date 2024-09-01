@@ -2,8 +2,10 @@ import pandas as pd
 from fastapi.responses import JSONResponse
 
 
-async def processing(data: pd.DataFrame):
+async def processing():
     try:
+        file_path = './data/cost_of_living_2024.csv'
+        data = pd.read_csv(file_path)
         # Initial analysis
         init_info = {
             "initial_shape": tuple(map(int, data.shape)),
@@ -54,39 +56,16 @@ async def processing(data: pd.DataFrame):
             return df
 
         data_no_outliers = remove_outliers(data_cleaned)
-
-        # Correlation matrix for numerical columns
-        correlation_matrix = data_no_outliers.select_dtypes(include=[float, int]).corr().map(float).to_dict()
-
-        # Data Distribution
-        distribution = {}
-        for col in data_no_outliers.select_dtypes(include=['number']).columns:
-            distribution[col] = data_no_outliers[col].describe().to_dict()
-
-        # Top N Rows
-        top_rows = data_no_outliers.head(5).to_dict(orient='records')
-
-        # Final information after cleaning
-        final_info = {
-            "final_shape": tuple(map(int, data_no_outliers.shape)),
-            "cleaned_missing_values": data_no_outliers.isnull().sum().to_dict(),
-            "cleaned_duplicate_rows": int(data_no_outliers.duplicated().sum())
-        }
-
-        # Compiling all results into a JSON-compatible dictionary
+        # primary statistics
         result = {
             "initial_info": init_info,
             "summary_statistics": summary_statistics,
             "value_counts": value_counts,
-            "outliers_columns": outliers_columns,
-            "final_info": final_info,
-            "correlation_matrix": correlation_matrix,
-            "distribution": distribution,
-            "top_rows": top_rows
+            "outliers_columns": outliers_columns
         }
 
-        # Return the result as JSON response with proper Content-Type
-        return JSONResponse(content=result)
+        # Return primary result and cleaner data
+        return result, data_no_outliers
 
     except Exception as e:
         error_info = {

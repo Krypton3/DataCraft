@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
-import Modal from './Modal';
+import Modal from '../Modal/Modal';
 import { Bar, Line, Doughnut } from 'react-chartjs-2';
 import {
   Card,

@@ -1,0 +1,20 @@
+networks:
+  bridge:
+
+services:
+  datacraft-frontend:
+    container_name: datacraft-frontend
+    networks:
+      - bridge
+    build: ./frontend
+    ports:
+      - "8085:3000"
+
+  datacraft-backend:
+    container_name: datacraft-backend
+    networks:
+      - bridge
+    build: ./backend
+    ports:
+      - "8080:8000"
+    

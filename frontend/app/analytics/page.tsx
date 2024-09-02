@@ -72,7 +72,7 @@ const Analytics: React.FC = () => {
     const [selectedPlot, setSelectedPlot] = useState<string | null>(null);
     const [plotData, setPlotData] = useState<any>(null);
 
-    const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:8000';
+    const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:8080';
 
     // Ref for chart instance
     const chartRef = useRef<ChartJS | null>(null);

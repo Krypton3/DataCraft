@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
       try {
         setIsModalOpen(true);
 
-        const response = await fetch('http://localhost:8000/dashboard/');
+        const response = await fetch('http://localhost:8080/dashboard/');
         const contentType = response.headers.get('content-type');
 
         if (!contentType || !contentType.includes('application/json')) {

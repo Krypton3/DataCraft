@@ -14,7 +14,7 @@ MAX_FILE_SIZE = 10 * 1024 * 1024  # 10MB in bytes
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # allowed origin
+    allow_origins=["http://localhost:8085"],  # allowed origin
     allow_credentials=True,
     allow_methods=["*"],  # Allow all methods (GET, POST, etc.)
     allow_headers=["*"],  # Allow all headers

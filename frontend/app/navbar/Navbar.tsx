@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Activity, Flash, Server, Model } from "./icons.tsx";
+import { Activity, Flash, Server, Model } from "./icons";
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, DropdownItem, DropdownTrigger, Dropdown, DropdownMenu} from "@nextui-org/react";
 
 
